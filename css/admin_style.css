@@ -219,6 +219,25 @@ section{
     border-radius: .5rem;
     border: var(--border);
 }
+.add-products form{
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
 
 
 
