@@ -229,7 +229,22 @@ section{
     max-width: 50rem;
     margin: 0 auto;
 }
-
+.add-products form h3{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+}
+.add-products form .box{
+    width: 100%;
+    background-color: var(--light-bg);
+    border-radius: .5rem;
+    margin: 1rem 0;
+    padding: 1.2rem 1.2rem;
+    color: var(--black);
+    font-size: 1.8rem;
+    border: var(--border);
+}
 
 
 
