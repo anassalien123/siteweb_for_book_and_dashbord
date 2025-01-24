@@ -73,6 +73,26 @@
     </section>
     <!-- product CRUD section ends -->
 
+    <!-- show products -->
+
+    <section class="show-products">
+        <div class="box-container">
+            <?php
+                $select_products = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed');
+                if(mysqli_num_rows($select_products) > 0) {
+                    while($fetch_products = mysqli_fetch_assoc($fetch_products)){
+            ?>
+            <div class="box">
+                <img src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
+            </div>
+            <?php
+                }
+            }else{
+                echo '<p class="empty">no product added yet!</p>';
+            }
+            ?>
+        </div>
+    </section>
 
 
 
