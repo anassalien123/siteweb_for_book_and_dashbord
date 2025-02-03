@@ -43,7 +43,28 @@
     }
 
     if(isset($_POST['update_product'])){
+        $update_p_id = $_POST['update_p_id'];
         $update_name = $_POST['update_name'];
+        $update_price = $_POST['update_price'];
+
+        mysqli_query($conn, "UPDATE `products` SET name = '$update_name', price = '$update_price' WHERE id = '$update_p_id'") or die ('query failed');
+
+        $update_image = $_POST['update_image']['name'];
+        $update_image_tmp_name = $_POST['update_image']['tmp_name'];
+        $update_image_size = $_POST['update_image']['size'];
+        $update_folder = 'uploaded_img/'.$update_image;
+        $update_old_image = $_POST['update_old_image'];
+
+        if(!empty($update_image)){
+            if($update_image_size > 2000000){
+                $message[] = 'image file size is too large';
+            }else{
+                mysqli_query($conn, "UPDATE `products` SET image = '$update_image' WHERE id = '$update_p_id'") or die ('query failed');
+                move_uploaded_file($update_image_tmp_name, $update_folder);
+                unlink('uploaded_img/'.$update_old_image);
+            }
+        }
+        header('location:admin_products.php');
     }
 ?>
 
